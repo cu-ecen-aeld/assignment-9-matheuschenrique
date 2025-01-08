@@ -28,8 +28,8 @@ INITSCRIPT_NAME:${PN} = "misc-modules-start-stop.sh"
 inherit module
 
 FILES:${PN} += "${sysconfdir}"
-FILES:${PN} += "{bindir}/module_load"
-FILES:${PN} += "{bindir}/module_unload"
+FILES:${PN} += "${bindir}/module_load"
+FILES:${PN} += "${bindir}/module_unload"
 
 EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}/misc-modules"
 EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
