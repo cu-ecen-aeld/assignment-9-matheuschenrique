@@ -38,7 +38,7 @@ do_install:append() {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/misc-modules-start-stop.sh ${D}${sysconfdir}/init.d
 
-    install -d ${D}{bindir}
-    install -m 0755 ${S}/misc-modules/module_load ${D}{bindir}/
-    install -m 0755 ${S}/misc-modules/module_unload ${D}{bindir}/
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/misc-modules/module_load ${D}${bindir}/
+    install -m 0755 ${S}/misc-modules/module_unload ${D}${bindir}/
 }
