@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-matheuschen
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "efe36406bb3fe894c5b5a0f26ea278b9aa45a839"
+SRCREV = "246ef9f7335c3c1a748c1237a2599763adec9f0d"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -33,7 +33,6 @@ do_configure () {
 }
 
 do_compile () {
-	echo "target prefix is ${TARGET_PREFIX}"
 	oe_runmake CROSS_COMPILE=${TARGET_PREFIX}
 }
 

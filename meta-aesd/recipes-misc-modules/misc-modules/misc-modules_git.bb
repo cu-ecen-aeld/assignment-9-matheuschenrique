@@ -28,6 +28,8 @@ INITSCRIPT_NAME:${PN} = "misc-modules-start-stop.sh"
 inherit module
 
 FILES:${PN} += "${sysconfdir}"
+FILES:${PN} += "{bindir}/module_load"
+FILES:${PN} += "{bindir}/module_unload"
 
 EXTRA_OEMAKE:append:task-install = " -C ${STAGING_KERNEL_DIR} M=${S}/misc-modules"
 EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
@@ -35,4 +37,8 @@ EXTRA_OEMAKE += "KERNELDIR=${STAGING_KERNEL_DIR}"
 do_install:append() {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/misc-modules-start-stop.sh ${D}${sysconfdir}/init.d
+
+    install -d ${D}{bindir}
+    install -m 0755 ${S}/misc-modules/module_load ${D}{bindir}/
+    install -m 0755 ${S}/misc-modules/module_unload ${D}{bindir}/
 }

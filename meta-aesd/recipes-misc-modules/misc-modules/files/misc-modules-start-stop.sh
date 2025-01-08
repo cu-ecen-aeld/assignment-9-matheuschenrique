@@ -2,12 +2,14 @@
 
 case $1 in
     start)
+        echo "Starting misc-modules"
         insmod /lib/modules/$(uname -r)/extra/hello.ko
-        insmod /lib/modules/$(uname -r)/extra/faulty.ko
+        module_load faulty
         ;;
     stop)
+        echo "Stopping misc-modules"
         rmmod hello
-        rmmod faulty
+        module_unload faulty
         ;;
     *)
         echo "Usage: $0 {start|stop}"
